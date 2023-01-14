@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="basic.js"></script>
+    <script defer src="clock.js"></script>
+    <script defer src="horoskop.js"></script>
+    <script defer src="weather.js"></script>
+    <script defer src="notes.js"></script>
+    <script defer src="to_do.js"></script>
+    <script defer src="finances.js"></script>
+    <script defer src="common.js"></script>
+    <title>Start page</title>
+    <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+  </head>
+  <header>
+    <div class="clock"></div>
+  </header>
+  <body>
+    <div class="hide__all"></div>
+    <div class="layout block">
+      <h1 class="app__name">Horoskop</h1>
+      <p class="app__description">
+        This application helps you to get the current age, sunsign and horoskop
+        for today and tomorrow.
+      </p>
+      <p class="instructions">Please, select birth date using a calendar</p>
+
+      <form class="input__form">
+        <label for="inp_bith__date">Birhday:</label>
+        <input
+          type="date"
+          value="1997-06-12"
+          min="1920-01-01"
+          max="2022-12-31"
+          class="inp_bith__date"
+        />
+        <br />
+        <button class="btn__check__the__age">Check the age</button>
+        <button class="btn__get__the__sunsign">Get the sunsign</button>
+        <button class="btn__get__a__horoskop">Get a horoskop</button>
+      </form>
+
+      <div class="recieved__data horoskop__info">
+        <p class="age hidden">Age:</p>
+        <p class="sunsign hidden">Sunsign:</p>
+        <p class="horoskop__today hidden">Today:</p>
+        <p class="horoskop__tomorrow hidden">Tomorrow:</p>
+      </div>
+    </div>
+
+    <div class="layout block block_weather hidden">
+      <h1 class="current__location__name">Weather in</h1>
+    </div>
+
+    <div class="layout column">
+    <div class="block column__block">
+      <h1>Notes</h1>
+      <button class="btn__new__note">New note</button>
+      <form class="form__create__new__note hidden">
+        <textarea class="text__new__note" placeholder="Start typing"></textarea>
+        <button class="btn__save__note">Add</button>
+      </form>
+      <form class="notes"></form>
+    </div>
+
+    <div class="block column__block">
+      <h1>To do</h1>
+      <button class="btn__new__task">New task</button>
+      <form class="create__task hidden">
+        <input class="text__new__task" placeholder="Start typing" maxlength="35"></input>
+        <button class="btn__save__task">Add</button>
+      </form>
+      <form class="tasks">
+      </form>
+    </div>
+  </div>
+
+    <div class="layout block">
+      <h1>Finances</h1>
+      <div class = "fiat">
+      <label for="currencies__list">Exchange rate</label>
+      <select class="currencies__list currencies__list1" id="currencies__list currencies__list1" onchange="getCurrency1(this);">
+        <option class="currency hidden">Currency</option>
+        <option class="currency" value="EUR">EUR</option>
+        <option class="currency" value="USD">USD</option>
+      </select>
+      <select class="currencies__list currencies__list2" id="currencies__list currencies__list2" onchange="getCurrency2(this);">
+        <option class="currency hidden">Currency</option>
+        <option class="currency">EUR</option>
+        <option class="currency">USD</option>
+        <option class="currency">CZK</option>
+        <option class="currency">UAH</option>
+      </select>
+      <div class="currencies__exchange__rate__list">
+    </div>
+  </div>
+  <div class="stocks">
+    <label for="stocks__list">Stocks rate</label>
+        <input class="stocks__list" list="stocks" id="stocks__list" placeholder="Start typing..." oninput='createStock(this)'/>
+<datalist class="stocks__array" id="stocks">
+</datalist>
+        <div class="stocks__rate__list">
+        </div>
+  </div>
+  <div class="crypto">
+    <div class="crypto__label"><label for="crypto__list">Cryptocurrencies</label></div>
+    <button class="get__bitcoin__price">Bitcoin price</button>
+        <div class="crypto__rate__list">
+        </div>
+  </div>
+    </div>
+    <div class="error__message hidden">
+      <button class="close__error__message btn__delete">x</button>
+      <p class="error__message__text"></p>
+    </div>
+  </body>
+</html>
