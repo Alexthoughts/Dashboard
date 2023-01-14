@@ -3,8 +3,6 @@
 }
 
 html {
-  font-size: 120%;
-  font-family: system-ui;
   color: #555;
   text-align: center;
   font-family: "Lato", sans-serif;
@@ -27,16 +25,16 @@ select {
   background-color: #fff;
   color: #3c4043;
   border-radius: 20px;
-  font-size: 14px;
-  height: 44px;
+  font-size: 10px;
+  height: 34px;
   letter-spacing: 0.25px;
   padding: 2px 10px;
-  margin: 10px;
+  margin: 4px;
   resize: none;
 }
 
 select {
-  font-size: 14px;
+  font-size: 10px;
   height: 34px;
 }
 
@@ -53,10 +51,10 @@ input:hover {
 
 h1 {
   color: #ffffff;
-  font-size: 50px;
+  font-size: 34px;
   font-weight: 300;
-  line-height: 58px;
-  margin: 0 0 30px;
+  line-height: 39px;
+  margin: 0 0 20px;
 }
 
 h2 {
@@ -81,7 +79,7 @@ label {
 /* ////////////////////////////-Layout-/////////////////////////// */
 .layout {
   float: left;
-  width: 22%;
+  width: 21%;
   margin: 20px;
 }
 
@@ -131,15 +129,15 @@ label {
 /* ////////////////////////////-Notes-/////////////////////////// */
 
 .text__new__note {
-  width: 300px;
-  height: 71px;
-  font-size: 20px;
+  width: 214px;
+  height: 48px;
+  font-size: 14px;
   border-radius: 20px;
 }
 
 .btn__save__note {
   position: relative;
-  bottom: 55px;
+  bottom: 27px;
 }
 
 .note {
@@ -148,34 +146,35 @@ label {
 
 .note__text {
   background-color: #ccc;
-  width: 320px;
-  height: 71px;
-  font-size: 20px;
+  width: 231px;
+  height: 48px;
+  font-size: 14px;
   border-radius: 20px;
   white-space: pre-line;
 }
 
 .btn__delete__note {
-  bottom: 45px;
+  bottom: 28px;
   height: 30px;
 }
 
 /* ////////////////////////////-To do-/////////////////////////// */
 
 .text__new__task {
-  width: 300px;
-  font-size: 15px;
+  width: 212px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
 .task__text {
-  font-size: 20px;
+  font-size: 14px;
   text-indent: 30px;
 }
 
 .task__content p {
   position: relative;
-  width: 300px;
+  bottom: 3px;
+  width: 250px;
   text-align: left;
   margin-left: 30px;
 }
@@ -198,8 +197,8 @@ label {
 .checkmark {
   position: absolute;
   left: 20px;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
 }
 
@@ -227,10 +226,10 @@ label {
 
 /* Style the checkmark/indicator */
 .task__content .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+  left: 3px;
+  top: 3px;
+  width: 4px;
+  height: 8px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
@@ -254,8 +253,8 @@ label {
 }
 
 .delete__from__finance__list {
-  left: 120px;
-  bottom: 49px;
+  left: 94px;
+  bottom: 41px;
 }
 
 .stocks__list {
@@ -273,13 +272,13 @@ label {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  max-height: 150px;
-  max-width: 400px;
+  max-height: 100px;
+  max-width: 338px;
   background-color: rgba(255, 89, 89, 0.529);
   border-radius: 20px;
   letter-spacing: 0.25px;
   font-weight: bold;
-  padding: 20px;
+  padding: 16px;
 }
 
 .close__error__message {
