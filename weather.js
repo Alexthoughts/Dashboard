@@ -20,7 +20,7 @@ const getWeather = function () {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
     return fetch(
-      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${lat},${lng}=Prague&days=2`,
+      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${lat},${lng}&days=2`,
       optionsWeather
     )
       .then((response) => response.json())
