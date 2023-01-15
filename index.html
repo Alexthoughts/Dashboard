@@ -67,11 +67,11 @@
       <form class="notes"></form>
     </div>
 
-    <div class="block column__block">
+    <div class="block">
       <h1>To do</h1>
       <button class="btn__new__task">New task</button>
       <form class="create__task hidden">
-        <input class="text__new__task" placeholder="Start typing" maxlength="35"></input>
+        <input class="text__new__task" placeholder="Start typing" maxlength="32"></input>
         <button class="btn__save__task">Add</button>
       </form>
       <form class="tasks">
@@ -82,7 +82,8 @@
     <div class="layout block">
       <h1>Finances</h1>
       <div class = "fiat">
-      <label for="currencies__list">Exchange rate</label>
+      <div class="financial__label"><label for="currencies__list">Exchange rate</label></div>
+      <br>
       <select class="currencies__list currencies__list1" id="currencies__list currencies__list1" onchange="getCurrency1(this);">
         <option class="currency hidden">Currency</option>
         <option class="currency" value="EUR">EUR</option>
@@ -99,7 +100,8 @@
     </div>
   </div>
   <div class="stocks">
-    <label for="stocks__list">Stocks rate</label>
+    <div class="financial__label"><label class="financial__label" for="stocks__list">Stocks rate</label></div>
+    <br>
         <input class="stocks__list" list="stocks" id="stocks__list" placeholder="Start typing..." oninput='createStock(this)'/>
 <datalist class="stocks__array" id="stocks">
 </datalist>
@@ -107,8 +109,10 @@
         </div>
   </div>
   <div class="crypto">
-    <div class="crypto__label"><label for="crypto__list">Cryptocurrencies</label></div>
+    <div class="financial__label"><label for="crypto__list">Cryptocurrencies</label></div>
+    <br>
     <button class="get__bitcoin__price">Bitcoin price</button>
+    <button class="get__ether__price">Ethereum  price</button>
         <div class="crypto__rate__list">
         </div>
   </div>

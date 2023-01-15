@@ -16,6 +16,7 @@ const stocks = document.querySelector(".stocks__array");
 const stocksRateList = document.querySelector(".stocks__rate__list");
 const cryptoList = document.querySelector(".crypto__rate__list");
 const btnGetBitcoinPrice = document.querySelector(".get__bitcoin__price");
+const btnGetEtherPrice = document.querySelector(".get__ether__price");
 const btnDelete = document.querySelector(".delete__from__finance__list");
 
 ///////////////////////-Exchange rate-/////////////////////
@@ -29,7 +30,7 @@ const maxFinancialCount = 7;
 const errorMessageFinancialsLimit =
   "Sorry, not possible to add more than 7 financials";
 const errorMessageFinancialsCannotBeLoaded =
-  "Sorry, some of your saved financials cannot be loaded, please add new financial/reload the page in one minute";
+  "Sorry, list of stocks or some of your saved financials cannot be loaded, please add new financial/reload the page in one minute";
 
 const CurrenciesPair = function (id, cur1, cur2, type = "fiat") {
   this.id = id;
@@ -68,7 +69,7 @@ const addCurrencies = function () {
 const currenciesRate = function (currenciesPair) {
   if (countFinancials <= maxFinancialCount) {
     fetch(
-      `https://twelve-data1.p.rapidapi.com/price?symbol=${currenciesPair.cur1}%2F${currenciesPair.cur2}&format=json&outputsize=30`,
+      `https://twelve-data1.p.rapidapi.com/price?symbol=${currenciesPair.cur1}%2F${currenciesPair.cur2}&format=json&outputsize=10`,
       options
     )
       .then((response) => response.json())
@@ -76,7 +77,10 @@ const currenciesRate = function (currenciesPair) {
         currencyRate = parseFloat(data.price).toFixed(2);
         renderCurrencies(currenciesPair);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        showErrorMessage(errorMessageFinancialsCannotBeLoaded);
+        return console.error(err);
+      });
   } else {
     showErrorMessage(errorMessageFinancialsLimit);
   }
@@ -124,7 +128,10 @@ const getStockList = function () {
           stocks.insertAdjacentHTML("beforeend", html);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        showErrorMessage(errorMessageFinancialsCannotBeLoaded);
+        return console.error(err);
+      });
   } else {
     showErrorMessage(errorMessageFinancialsLimit);
   }
@@ -204,6 +211,10 @@ const getBitcoinPrice = function () {
   getCryptocurrencyPrice("BTC");
 };
 
+const getEtherPrice = function () {
+  getCryptocurrencyPrice("ETH");
+};
+
 ///////////////////////-Delete-/////////////////////
 const deleteFromFinance = function (e) {
   const element = e.target;
@@ -268,3 +279,4 @@ window.addEventListener("load", getLocalStorageFinance);
 window.addEventListener("load", getStockList);
 document.addEventListener("click", deleteFromFinance);
 btnGetBitcoinPrice.addEventListener("click", getBitcoinPrice);
+btnGetEtherPrice.addEventListener("click", getEtherPrice);

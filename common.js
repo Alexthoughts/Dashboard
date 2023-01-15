@@ -5,7 +5,7 @@ const btnCloseErrorMessage = document.querySelector(".close__error__message");
 const showErrorMessage = function (errorText) {
   htmlErrorText.textContent = errorText;
   errorMessage.classList.remove("hidden");
-  setTimeout(hideErrorMessage, 8000);
+  setTimeout(hideErrorMessage, 10 * 1000);
 };
 
 const hideErrorMessage = function () {
