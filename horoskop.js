@@ -8,6 +8,7 @@ const optionsHoroskop = {
 };
 
 const inputBirthDay = document.querySelector(".inp_bith__date");
+const btnSaveBirhDay = document.querySelector(".save__birth__date");
 const btnCheckTheAge = document.querySelector(".btn__check__the__age");
 const btnGetTheSunsign = document.querySelector(".btn__get__the__sunsign");
 const btnGetHoroskop = document.querySelector(".btn__get__a__horoskop");
@@ -17,6 +18,7 @@ const sunsignClass = document.querySelector(".sunsign");
 const horoskopTodayClass = document.querySelector(".horoskop__today");
 const horoskopTomorrowClass = document.querySelector(".horoskop__tomorrow");
 
+let birthDay;
 let displayedAge;
 let displayedSunsign;
 let displayedHoroskop = false;
@@ -34,12 +36,23 @@ const checkIfClassExist = function (stringClassName) {
 };
 
 const getBirthDay = function () {
-  const birthDay = inputBirthDay.value;
+  birthDay = inputBirthDay.value;
   if (birthDay) {
     return new Date(birthDay); //date
   } else {
     alert(`Birhday is not selected`);
   }
+};
+
+const saveNewBirthDate = function (e) {
+  e.preventDefault();
+  localStorage.setItem("birhDate", inputBirthDay.value);
+};
+
+const getBirthDayFromLocalStorage = function () {
+  const data = localStorage.getItem("birhDate");
+  if (!data) return;
+  inputBirthDay.value = data;
 };
 
 const countAge = function () {
@@ -198,3 +211,6 @@ btnGetHoroskop.addEventListener("click", function (e) {
   getHoroskopForToday();
   getHoroskopForTomorrow();
 });
+
+btnSaveBirhDay.addEventListener("click", saveNewBirthDate);
+window.addEventListener("load", getBirthDayFromLocalStorage);

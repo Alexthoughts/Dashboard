@@ -20,7 +20,7 @@ body {
 
 header {
   background-color: rgb(34, 34, 34);
-  padding: 2%;
+  padding: 0.5%;
 }
 
 button,
@@ -132,6 +132,10 @@ label {
 .clock {
   font-size: 34px;
   cursor: default;
+}
+
+.date {
+  margin: 10px;
 }
 
 /* ////////////////////////////-Notes-/////////////////////////// */
