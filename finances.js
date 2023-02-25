@@ -20,10 +20,7 @@ const btnGetEtherPrice = document.querySelector(".get__ether__price");
 const btnDelete = document.querySelector(".delete__from__finance__list");
 
 ///////////////////////-Exchange rate-/////////////////////
-let currency1;
-let currency2;
-let currencyRate;
-let currenciesPair;
+let currency1, currency2, currencyRate, currenciesPair;
 let currenciesPairArray = [];
 let countFinancials = 0;
 const maxFinancialCount = 7;
@@ -106,8 +103,7 @@ const renderCurrencies = function (currenciesPair) {
 
 ///////////////////////-Stocks-/////////////////////
 let stocksArray = [];
-let selectedStock;
-let selectedStockPrice;
+let selectedStock, selectedStockPrice;
 
 const Stock = function (id, symbol) {
   this.id = id;

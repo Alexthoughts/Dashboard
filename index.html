@@ -5,14 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="basic.js"></script>
-    <script defer src="clock.js"></script>
-    <script defer src="horoskop.js"></script>
-    <script defer src="weather.js"></script>
-    <script defer src="notes.js"></script>
-    <script defer src="to_do.js"></script>
-    <script defer src="finances.js"></script>
-    <script defer src="common.js"></script>
+    <script type="module" defer src="controller.js"></script>
     <title>Start page</title>
     <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
   </head>
@@ -21,7 +14,6 @@
     <div class="date"></div>
   </header>
   <body>
-    <div class="hide__all"></div>
     <div class="layout block">
       <h1 class="app__name">Horoskop</h1>
       <p class="app__description">
@@ -54,8 +46,7 @@
       </div>
     </div>
 
-    <div class="layout block block_weather hidden">
-      <h1 class="current__location__name">Weather in</h1>
+    <div class="layout block block_weather">
     </div>
 
     <div class="layout column">
@@ -118,10 +109,6 @@
         <div class="crypto__rate__list">
         </div>
   </div>
-    </div>
-    <div class="error__message hidden">
-      <button class="close__error__message btn__delete">x</button>
-      <p class="error__message__text"></p>
     </div>
   </body>
 </html>

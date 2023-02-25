@@ -18,9 +18,7 @@ const sunsignClass = document.querySelector(".sunsign");
 const horoskopTodayClass = document.querySelector(".horoskop__today");
 const horoskopTomorrowClass = document.querySelector(".horoskop__tomorrow");
 
-let birthDay;
-let displayedAge;
-let displayedSunsign;
+let birthDay, displayedAge, displayedSunsign;
 let displayedHoroskop = false;
 
 const checkIfClassExist = function (stringClassName) {
