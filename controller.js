@@ -1,5 +1,6 @@
 import * as weatherModel from "./model/weatherModel";
 import weatherView from "./view/weatherView";
+import { showTime } from "./clock";
 
 const showWeather = async function () {
   try {
@@ -14,6 +15,7 @@ const showWeather = async function () {
 };
 
 const init = function () {
+  showTime();
   showWeather();
   weatherView.handleError(weatherView.hideErrorMessage);
 };

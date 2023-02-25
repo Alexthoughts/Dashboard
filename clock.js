@@ -1,7 +1,7 @@
 const clock = document.querySelector(".clock");
 const date = document.querySelector(".date");
 
-const showTime = function () {
+export const showTime = function () {
   const now = new Date();
 
   const day = `${now.getDate()}`.padStart(2, 0); //add 0 if day < 10
@@ -16,5 +16,3 @@ const showTime = function () {
 
   setTimeout(showTime, 1000);
 };
-
-showTime();
