@@ -1,8 +1,30 @@
 import * as weatherModel from "./model/weatherModel";
 import * as notesModel from "./model/notesModel";
 import * as tasksModel from "./model/tasksModel";
+import * as horoskopModel from "./model/horoskopModel";
 import weatherView from "./view/weatherView";
 import { showTime } from "./clock";
+
+const controlHoroskop = function () {
+  horoskopModel.btnCheckTheAge.addEventListener(
+    "click",
+    horoskopModel.countAge
+  );
+  horoskopModel.btnGetTheSunsign.addEventListener("click", function (e) {
+    e.preventDefault();
+    horoskopModel.getSunsign();
+  });
+  horoskopModel.btnGetHoroskop.addEventListener("click", function (e) {
+    e.preventDefault();
+    horoskopModel.getHoroskopForToday();
+    horoskopModel.getHoroskopForTomorrow();
+  });
+  horoskopModel.btnSaveBirhDay.addEventListener(
+    "click",
+    horoskopModel.saveNewBirthDate
+  );
+  window.addEventListener("load", horoskopModel.getBirthDayFromLocalStorage);
+};
 
 const showWeather = async function () {
   try {
@@ -32,6 +54,7 @@ const controlTasks = function () {
 
 const init = function () {
   showTime();
+  controlHoroskop();
   showWeather();
   weatherView.handleError(weatherView.hideErrorMessage);
   controlNotes();
