@@ -242,15 +242,6 @@ const deleteFromFinance = function (e) {
 const checkDuplicitFinances = function () {};
 
 ///////////////////////-Local storage-/////////////////////
-const setLocalStorage = function (array, storageName) {
-  localStorage.setItem(storageName, JSON.stringify(array));
-};
-
-const resetLocalStorage = function (storageName) {
-  localStorage.removeItem(storageName);
-  return `${storageName} removed from local storage`;
-};
-
 const getLocalStorageFiat = function () {
   const data = JSON.parse(localStorage.getItem("currenciesPairArray"));
   if (!data) return;
