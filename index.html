@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script type="module" defer src="controller.js"></script>
+    <script type="module" defer src="controller/controller.js"></script>
     <title>Start page</title>
     <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
   </head>
@@ -39,10 +39,10 @@
       </form>
 
       <div class="recieved__data horoskop__info">
-        <p class="age hidden">Age:</p>
-        <p class="sunsign hidden">Sunsign:</p>
-        <p class="horoskop__today hidden">Today:</p>
-        <p class="horoskop__tomorrow hidden">Tomorrow:</p>
+        <p class="age hidden"></p>
+        <p class="sunsign hidden"></p>
+        <p class="horoskop__today hidden"></p>
+        <p class="horoskop__tomorrow hidden">:</p>
       </div>
     </div>
 
@@ -77,17 +77,17 @@
       <div class = "fiat">
       <div class="financial__label"><label for="currencies__list">Exchange rate</label></div>
       <br>
-      <select class="currencies__list currencies__list1" id="currencies__list currencies__list1" onchange="getCurrency1(this);">
-        <option class="currency hidden">Currency</option>
-        <option class="currency" value="EUR">EUR</option>
-        <option class="currency" value="USD">USD</option>
+      <select class="currencies__list" id="currencies__list1">
+        <option value="" class="hidden">Currency</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
       </select>
-      <select class="currencies__list currencies__list2" id="currencies__list currencies__list2" onchange="getCurrency2(this);">
-        <option class="currency hidden">Currency</option>
-        <option class="currency">EUR</option>
-        <option class="currency">USD</option>
-        <option class="currency">CZK</option>
-        <option class="currency">UAH</option>
+      <select class="currencies__list" id="currencies__list2">
+        <option value="" class="hidden">Currency</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="CZK">CZK</option>
+        <option value="UAH">UAH</option>
       </select>
       <div class="currencies__exchange__rate__list">
     </div>
@@ -95,8 +95,8 @@
   <div class="stocks">
     <div class="financial__label"><label class="financial__label" for="stocks__list">Stocks rate</label></div>
     <br>
-        <input class="stocks__list" list="stocks" id="stocks__list" placeholder="Start typing..." oninput='createStock(this)'/>
-<datalist class="stocks__array" id="stocks">
+        <input class="stocks__input" list="stocks__array" placeholder="Start typing..."/>
+<datalist class="stocks__array" id="stocks__array">
 </datalist>
         <div class="stocks__rate__list">
         </div>
@@ -110,5 +110,7 @@
         </div>
   </div>
     </div>
+    <div class="errors">
+</div> 
   </body>
 </html>

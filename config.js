@@ -1,1 +1,1 @@
-export const DISPLAY_ERROR_TIME = 3;
+export const DISPLAY_ERROR_TIME = 5;

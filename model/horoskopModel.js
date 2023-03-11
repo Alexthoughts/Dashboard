@@ -1,5 +1,3 @@
-import horoskopView from "../view/horoskopView";
-
 //Aztro API configuration
 const optionsHoroskop = {
   method: "POST",
@@ -12,36 +10,14 @@ const optionsHoroskop = {
 const inputBirthDay = document.querySelector(".inp_bith__date");
 export const btnSaveBirhDay = document.querySelector(".save__birth__date");
 export const btnCheckTheAge = document.querySelector(".btn__check__the__age");
-export const btnGetTheSunsign = document.querySelector(
-  ".btn__get__the__sunsign"
-);
+export const btnGetTheSunsign = document.querySelector(".btn__get__the__sunsign");
 export const btnGetHoroskop = document.querySelector(".btn__get__a__horoskop");
-const recievedDataHoroskop = document.querySelector(".horoskop__info");
 
-let birthDay;
-let displayedAge;
-let displayedSunsign = "";
-let displayedHoroskop = false;
-
-export const checkIfClassExist = function (stringClassName) {
-  for (let i = 0; i < recievedDataHoroskop.childNodes.length; i++) {
-    if (recievedDataHoroskop.childNodes.length > 1) {
-      if (recievedDataHoroskop.childNodes[i].className == stringClassName) {
-        return true;
-      }
-    } else {
-      return false;
-    }
-  }
-};
+export const horoskopData = {};
 
 const getBirthDay = function () {
-  birthDay = inputBirthDay.value;
-  if (birthDay) {
-    return new Date(birthDay); //date
-  } else {
-    horoskopView.renderError();
-  }
+  let birthDay = inputBirthDay.value;
+  if (birthDay) return new Date(birthDay);
 };
 
 export const saveNewBirthDate = function (e) {
@@ -59,25 +35,23 @@ export const countAge = function (e) {
   e.preventDefault();
   const today = new Date();
   const birthDate = getBirthDay();
+  if (!birthDate) return;
   let age = today.getFullYear() - birthDate.getFullYear();
   const m = today.getMonth() - birthDate.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
-  horoskopView.renderAge(age);
-  displayedAge = age;
+  horoskopData.age = age;
   return age;
 };
 
 export const getSunsign = function () {
   const birthDate = getBirthDay();
+  if (!birthDate) return;
   const birthMonth = birthDate.getMonth() + 1;
   const birthDay = birthDate.getDate();
   let sunsign;
-  if (
-    (birthMonth === 1 && birthDay >= 21) ||
-    (birthMonth === 2 && birthDay <= 18)
-  ) {
+  if ((birthMonth === 1 && birthDay >= 21) || (birthMonth === 2 && birthDay <= 18)) {
     sunsign = "Aquarius";
   } else if (
     (birthMonth === 2 && birthDay >= 19) ||
@@ -135,8 +109,7 @@ export const getSunsign = function () {
   ) {
     sunsign = "Capricorn";
   }
-  horoskopView.renderSunsigne(sunsign);
-  displayedSunsign = sunsign;
+  horoskopData.sunsign = sunsign;
   return sunsign;
 };
 
@@ -148,10 +121,9 @@ export const getHoroskopForToday = async function () {
       optionsHoroskop
     );
     const data = await response.json();
-    horoskopView.renderHoroskopToday(data, displayedHoroskop);
-    displayedHoroskop = true;
+    horoskopData.horoskopToday = data;
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
@@ -163,9 +135,8 @@ export const getHoroskopForTomorrow = async function () {
       optionsHoroskop
     );
     const data = await response.json();
-    horoskopView.renderHoroskopTomorrow(data, displayedHoroskop);
-    displayedHoroskop = true;
+    horoskopData.horoskopTomorrow = data;
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };

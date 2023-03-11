@@ -1,5 +1,10 @@
 class tasksView {
-  renderTask = function (task) {
+  toggleFormNewTask() {
+    const formNewTask = document.querySelector(".create__task");
+    formNewTask.classList.toggle("hidden");
+  }
+
+  renderTask(task) {
     const formTasks = document.querySelector(".tasks");
     const html = `
         <div class="task">
@@ -11,7 +16,13 @@ class tasksView {
               </label>
               </div>`;
     formTasks.insertAdjacentHTML("beforeend", html);
-  };
+  }
+
+  deleteTask(element) {
+    if (!element) return;
+    element.closest(".task").classList.add("smooth__hide");
+    setTimeout(() => element.closest(".task").classList.add("hidden"), 1000);
+  }
 }
 
 export default new tasksView();

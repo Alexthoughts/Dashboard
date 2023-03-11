@@ -1,7 +1,8 @@
 import { DISPLAY_ERROR_TIME } from "../config";
 
 export default class view {
-  body = document.querySelector("body");
+  errors = document.querySelector(".errors");
+  btnHideError = document.querySelector(".close__error__message");
 
   renderSpinner() {
     const markup = `
@@ -16,7 +17,7 @@ export default class view {
         <button class="close__error__message btn__delete">x</button>
         <p class="error__message__text"> ${errorMessage}</p>
     </div>`;
-    this.body.insertAdjacentHTML("beforeend", markup);
+    this.errors.insertAdjacentHTML("beforeend", markup);
     setTimeout(this.hideErrorMessage, DISPLAY_ERROR_TIME * 1000);
   }
 
@@ -24,11 +25,12 @@ export default class view {
     document.querySelector(".error__message").classList.add("hidden");
   }
 
-  handleError(handler) {
+  handleError() {
     document.addEventListener("click", function (e) {
-      const btn = e.target.closest(".error__message");
-      if (!btn) return;
-      handler();
+      const btn = e.target;
+      if (btn.classList.contains("close__error__message")) {
+        btn.closest(".error__message").classList.add("hidden");
+      }
     });
   }
 

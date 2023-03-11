@@ -1,13 +1,12 @@
-import tasksView from "../view/tasksView";
 import * as model from "./model";
 
 export const btnNewTask = document.querySelector(".btn__new__task");
-const formNewTask = document.querySelector(".create__task");
 const newTaskText = document.querySelector(".text__new__task");
 export const btnAddNewTask = document.querySelector(".btn__save__task");
 export const checkBox = document.querySelector(".task__content");
 
-let tasksArray = [];
+export let tasksArray = [];
+export let deleteElement;
 
 class Task {
   constructor(id, text) {
@@ -19,7 +18,6 @@ class Task {
 export const openFormTask = function (e) {
   e.preventDefault();
   newTaskText.value = "";
-  formNewTask.classList.toggle("hidden");
   newTaskText.focus();
 };
 
@@ -30,9 +28,7 @@ export const addNewTask = function (e) {
     const taskId = Date.now() + "".slice(-10);
     const task = new Task(taskId, taskText);
     tasksArray.push(task);
-    formNewTask.classList.add("hidden");
-    tasksView.renderTask(task);
-    model.setLocalStorage(tasksArray, "tasksArray");
+    model.saveToLocalStorage(tasksArray, "tasksArray");
   }
 };
 
@@ -44,10 +40,8 @@ export const deleteTask = function (e) {
   ) {
     const taskIndex = tasksArray.findIndex((el) => el.id === element.id);
     tasksArray.splice(taskIndex, 1);
-    element.closest(".task").classList.add("smooth__hide");
-    setTimeout(() => element.closest(".task").classList.add("hidden"), 1000);
-
-    model.setLocalStorage(tasksArray, "tasksArray");
+    model.saveToLocalStorage(tasksArray, "tasksArray");
+    deleteElement = element;
   }
 };
 
@@ -55,5 +49,4 @@ export const getLocalStorageTask = function () {
   const data = JSON.parse(localStorage.getItem("tasksArray"));
   if (!data) return;
   tasksArray = data;
-  tasksArray.forEach((task) => tasksView.renderTask(task));
 };

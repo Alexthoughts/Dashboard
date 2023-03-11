@@ -278,18 +278,22 @@ label {
 }
 
 /* ////////////////////////////-Error message-/////////////////////////// */
-
-.error__message {
-  position: absolute;
+.errors {
+  position: fixed;
   right: 20px;
   bottom: 20px;
+}
+
+.error__message {
+  position: relative;
   max-height: 100px;
   max-width: 338px;
-  background-color: rgba(255, 89, 89, 0.529);
+  background-color: rgba(172, 26, 26);
   border-radius: 20px;
   letter-spacing: 0.25px;
   font-weight: bold;
-  padding: 16px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .close__error__message {

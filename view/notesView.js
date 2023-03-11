@@ -1,4 +1,10 @@
 class notesView {
+  formNewNote = document.querySelector(".form__create__new__note");
+
+  toggleNewNoteForm() {
+    this.formNewNote.classList.toggle("hidden");
+  }
+
   renderNote(note) {
     const notes = document.querySelector(".notes");
     const html = `

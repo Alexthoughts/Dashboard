@@ -1,56 +1,32 @@
 import view from "./view";
-import { checkIfClassExist } from "../model/horoskopModel";
 
 class horoskopView extends view {
-  _errorMessage = "Birhday is not selected";
-
-  renderHoroskopTomorrow(data, displayedHoroskop) {
+  renderHoroskopTomorrow(data) {
+    if (!data.description) return;
     const horoskopTomorrowClass = document.querySelector(".horoskop__tomorrow");
-    if (!checkIfClassExist("horoskop__tomorrow")) {
-      horoskopTomorrowClass.textContent += data.description;
-      horoskopTomorrowClass.classList.remove("hidden");
-    } else {
-      if (displayedHoroskop) {
-        horoskopTomorrowClass.textContent = `Tomorrow: ${data.description}`;
-      }
-    }
+    horoskopTomorrowClass.textContent = `Tomorrow: ${data.description}`;
+    horoskopTomorrowClass.classList.remove("hidden");
   }
 
-  renderHoroskopToday(data, displayedHoroskop) {
+  renderHoroskopToday(data) {
+    if (!data.description) return;
     const horoskopTodayClass = document.querySelector(".horoskop__today");
-    if (!checkIfClassExist("horoskop__today")) {
-      horoskopTodayClass.textContent += data.description;
-      horoskopTodayClass.classList.remove("hidden");
-    } else {
-      if (displayedHoroskop) {
-        horoskopTodayClass.textContent = `Today: ${data.description}`;
-      }
-    }
+    horoskopTodayClass.textContent = `Today: ${data.description}`;
+    horoskopTodayClass.classList.remove("hidden");
   }
 
-  renderSunsigne(sunsign, displayedSunsign) {
+  renderSunsigne(sunsign) {
+    if (!sunsign) return;
     const sunsignClass = document.querySelector(".sunsign");
-    if (!checkIfClassExist("sunsign")) {
-      sunsignClass.textContent += sunsign;
-      sunsignClass.classList.remove("hidden");
-    } else {
-      if (displayedSunsign != sunsign) {
-        sunsignClass.textContent = `Sunsign: ${sunsign}`;
-      }
-    }
+    sunsignClass.textContent = `Sunsign: ${sunsign}`;
+    sunsignClass.classList.remove("hidden");
   }
 
   renderAge(age) {
+    if (!age) return;
     const ageClass = document.querySelector(".age");
-    if (!checkIfClassExist("age")) {
-      ageClass.textContent += age;
-      ageClass.classList.remove("hidden");
-    } else {
-      //if age dispalayed,check that birthday dosn't change
-      if (displayedAge != age) {
-        ageClass.textContent = `Age: ${age}`;
-      }
-    }
+    ageClass.textContent = `Age: ${age}`;
+    ageClass.classList.remove("hidden");
   }
 }
 
