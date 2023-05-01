@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+}
+
+html {
+  color: #555;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: #121212;
+}
+
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
+
+header {
+  background-color: rgb(34, 34, 34);
+  padding: 0.5%;
+}
+
+button,
+input,
+textarea,
+select {
+  background-color: #fff;
+  color: #3c4043;
+  border-radius: 20px;
+  font-size: 10px;
+  height: 34px;
+  letter-spacing: 0.25px;
+  padding: 2px 10px;
+  margin: 4px;
+  resize: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  max-width: 77%;
+}
+
+select {
+  height: 34px;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(197, 208, 255, 0.741);
+  transform: translateY(-2px);
+}
+
+input:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(197, 208, 255, 0.741);
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 39px;
+  margin: 0 0 20px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 150;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p {
+  color: #adb7bd;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 10px;
+}
+
+label {
+  color: #adb7bd;
+}
+
+/* ////////////////////////////-Layout-/////////////////////////// */
+.layout {
+  float: left;
+  width: 21%;
+  margin: 2%;
+}
+
+.block {
+  border-radius: 20px;
+  background-color: rgb(47, 47, 47);
+  box-shadow: 0px 5px 10px 0px rgba(51, 207, 255, 0.482);
+  padding: 10px 0px 10px 0px;
+}
+
+.column__block {
+  margin-bottom: 30px;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1000px) {
+  .block {
+    width: 96%;
+  }
+  .column {
+    width: 100%;
+  }
+}
+
+/* ////////////////////////////-Common classes-/////////////////////////// */
+
+.btn__delete {
+  position: relative;
+  color: rgb(255, 89, 89);
+  height: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.btn__delete:hover {
+  box-shadow: 0px 0px 10px 0px rgba(255, 197, 197, 0.741);
+  transform: none;
+}
+
+/* ////////////////////////////-Clock-/////////////////////////// */
+.clock {
+  font-size: 34px;
+  cursor: default;
+}
+
+.date {
+  margin: 10px;
+}
+
+/* ////////////////////////////-Notes-/////////////////////////// */
+
+.text__new__note {
+  width: 212px;
+  height: 55px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.btn__save__note {
+  position: relative;
+  bottom: 27px;
+  margin-top: 40px;
+}
+
+.note {
+  margin-bottom: -15px;
+}
+
+.note__text {
+  background-color: #ccc;
+  width: 231px;
+  height: 55px;
+  font-size: 14px;
+  border-radius: 20px;
+  white-space: pre-line;
+}
+
+.btn__delete__note {
+  bottom: 28px;
+  height: 30px;
+}
+
+/* ////////////////////////////-To do-/////////////////////////// */
+
+.text__new__task {
+  width: 212px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.task__text {
+  font-size: 14px;
+  text-indent: 30px;
+}
+
+.task__content p {
+  position: relative;
+  max-width: 300px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+/* Customize the label (the container) */
+.task__content {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.task__content input {
+  display: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.task__content:hover .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.task__content input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.task__content input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.task__content .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ////////////////////////////-Finances-/////////////////////////// */
+
+.currencies__pair,
+.stoks__rate,
+.crypto__rate {
+  height: 20px;
+  margin: 20px;
+}
+
+.currencies__pair__currencies,
+.currencies__pair__stock {
+  height: 30px;
+  width: auto;
+}
+
+.delete__from__finance__list {
+  left: 100px;
+  bottom: 41px;
+}
+
+.stocks__list {
+  height: 30px;
+}
+
+.financial__label {
+  margin-top: 20px;
+}
+
+/* ////////////////////////////-Error message-/////////////////////////// */
+.errors {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.error__message {
+  position: relative;
+  max-height: 100px;
+  max-width: 338px;
+  background-color: rgba(172, 26, 26);
+  border-radius: 20px;
+  letter-spacing: 0.25px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+}
+
+.close__error__message {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 22px;
+}
+
+/* ////////////////////////////-Technical-/////////////////////////// */
+.smooth__hide {
+  opacity: 0;
+  transition: all 1000ms ease-out;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 61, 0, 0.2) 33%,
+    rgba(51, 207, 255, 0.482) 100%
+  );
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #263238;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
