@@ -237,13 +237,13 @@ label {
 }
 
 /* ////////////////////////////-To do-/////////////////////////// */
-.create__task {
-  /* opacity: 1;
+/* .create__task {
+  opacity: 1;
   height: 100%;
   transition-property: height;
   transition-duration: 1s;
-  transition-delay: 1s; */
-}
+  transition-delay: 1s;
+} */
 
 .text__new__task {
   width: 21.2rem;
