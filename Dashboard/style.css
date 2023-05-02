@@ -37,7 +37,7 @@ COLORS:
 }
 
 html {
-  color: #555;
+  color: #aaa;
   text-align: center;
   font-family: "Lato", sans-serif;
   font-size: 62.5%;
@@ -50,7 +50,7 @@ html *:focus:not(.btn__delete) {
 }
 
 body {
-  background-color: #191919;
+  background-color: #151515;
 }
 
 html,
@@ -60,7 +60,7 @@ body {
 }
 
 header {
-  background-color: #222;
+  background-image: linear-gradient(to top, #151515, #2c2c2c);
   padding: 0.5%;
 }
 
