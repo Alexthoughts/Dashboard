@@ -2,22 +2,20 @@ class tasksView {
   toggleFormNewTask() {
     const formNewTask = document.querySelector(".create__task");
     formNewTask.classList.toggle("hidden");
+    // formNewTask.classList.toggle("smooth-height");
   }
-
   renderTask(task) {
     const formTasks = document.querySelector(".tasks");
     const html = `
-        <div class="task">
-          <label class="task__content" id="${task.id}"
-                >
-                <input type="checkbox"/>
-                <span class="checkmark"></span>
-                <p class="task__text">${task.text}</p>
-              </label>
-              </div>`;
+            <div class="task">
+            <label class="custom-checkbox" id="${task.id}">
+              <input type="checkbox"/>
+              <span class="checkmark"></span>
+            </label>
+            <p class="task-text">${task.text}</p>
+          </div>`;
     formTasks.insertAdjacentHTML("beforeend", html);
   }
-
   deleteTask(element) {
     if (!element) return;
     element.closest(".task").classList.add("smooth__hide");

@@ -31,7 +31,6 @@ export const saveNote = function (e) {
 };
 
 export const deleteNote = function (e) {
-  e.preventDefault();
   const element = e.target;
   if (!element.classList.contains("btn__delete__note")) return;
   const noteEl = element.closest(".note");

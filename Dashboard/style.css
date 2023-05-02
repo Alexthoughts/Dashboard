@@ -1,15 +1,56 @@
+/* 
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+button,input, textarea, select: 10px
+h1, clock: 30px
+h2: 20px
+p, task, note, date, label: 14px
+big text (temperature): 24px
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+
+
+COLORS:
+-main: #333333
+-background: #191919
+-header background: #222222
+-button,input,textarea,select,h1,h2 background: #fff
+-note background, p, label: #ccc
+-block: rgb(47, 47, 47)
+-block shadow: rgba(51, 207, 255, 0.482)
+-button,input,textarea,select color: #3c4043
+-button, input hover: rgba(197, 208, 255, 0.741)
+-error message: rgba(172, 26, 26);
+-btn delete: rgb(255, 89, 89)
+-btn delete hover: rgba(255, 197, 197, 0.741)
+-checkmark: #eee, hover #ccc,  border white, checked #2196f3
+
+*/
+
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   color: #555;
   text-align: center;
   font-family: "Lato", sans-serif;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+html *:focus:not(.btn__delete) {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(51, 207, 255, 0.482);
 }
 
 body {
-  background-color: #121212;
+  background-color: #191919;
 }
 
 html,
@@ -19,7 +60,7 @@ body {
 }
 
 header {
-  background-color: rgb(34, 34, 34);
+  background-color: #222;
   padding: 0.5%;
 }
 
@@ -27,10 +68,11 @@ button,
 input,
 textarea,
 select {
-  background-color: #fff;
-  color: #3c4043;
+  background-color: #ddd;
+  color: #191919;
+  border: none;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 1rem;
   height: 34px;
   letter-spacing: 0.25px;
   padding: 2px 10px;
@@ -39,217 +81,249 @@ select {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-
-  max-width: 77%;
+  transition: all 0.3s;
 }
 
 select {
   height: 34px;
 }
 
-button:hover {
+.btn:hover,
+select:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 10px 0px rgba(197, 208, 255, 0.741);
-  transform: translateY(-2px);
+  background-color: #ccc;
 }
 
-input:hover {
+input:hover,
+.btn__delete {
   cursor: pointer;
-  box-shadow: 0px 0px 10px 0px rgba(197, 208, 255, 0.741);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: #ccc;
 }
 
 h1 {
-  color: #ffffff;
-  font-size: 34px;
+  color: #ddd;
+  font-size: 3rem;
   font-weight: 300;
   line-height: 39px;
   margin: 0 0 20px;
 }
 
 h2 {
-  color: #ffffff;
-  font-size: 27px;
+  color: #ddd;
+  font-size: 2rem;
   font-weight: 150;
   line-height: 24px;
-  margin: 0 0 24px;
 }
 
 p {
-  color: #adb7bd;
-  font-size: 14px;
+  color: #bbb;
+  font-size: 1.4rem;
   line-height: 20px;
   margin: 10px;
 }
 
 label {
-  color: #adb7bd;
+  color: #bbb;
+  font-size: 1.4rem;
 }
 
 /* ////////////////////////////-Layout-/////////////////////////// */
-.layout {
-  float: left;
-  width: 21%;
-  margin: 2%;
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6.2rem;
+  margin: 1.8rem;
 }
 
 .block {
-  border-radius: 20px;
-  background-color: rgb(47, 47, 47);
-  box-shadow: 0px 5px 10px 0px rgba(51, 207, 255, 0.482);
-  padding: 10px 0px 10px 0px;
+  border-radius: 2rem;
+  background-color: #333;
+  box-shadow: 0px 0.5rem 1rem 0px rgba(51, 207, 255, 0.482);
+  padding: 1rem;
+  height: fit-content;
 }
 
-.column__block {
-  margin-bottom: 30px;
+.notepad-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
 
-/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 1000px) {
-  .block {
-    width: 96%;
-  }
-  .column {
-    width: 100%;
-  }
+/* ////////////////////////////-Weather-/////////////////////////// */
+.flexbox-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tomorrow-text {
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.current-temperature {
+  font-size: 2.4rem;
+}
+
+.tomorrow-temperature {
+  font-size: 2rem;
 }
 
 /* ////////////////////////////-Common classes-/////////////////////////// */
 
 .btn__delete {
-  position: relative;
   color: rgb(255, 89, 89);
-  height: 30px;
   background-color: transparent;
   border: none;
+  transition: all 0.3s;
 }
 
 .btn__delete:hover {
-  box-shadow: 0px 0px 10px 0px rgba(255, 197, 197, 0.741);
-  transform: none;
+  transform: scale(2);
+}
+
+.btn__delete:focus {
+  outline: none;
 }
 
 /* ////////////////////////////-Clock-/////////////////////////// */
 .clock {
-  font-size: 34px;
+  font-size: 3rem;
   cursor: default;
 }
 
 .date {
-  margin: 10px;
+  margin: 1rem;
+  font-size: 1.4rem;
 }
 
 /* ////////////////////////////-Notes-/////////////////////////// */
 
-.text__new__note {
-  width: 212px;
-  height: 55px;
-  font-size: 14px;
-  border-radius: 20px;
+.form__create__new__note {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
 }
 
-.btn__save__note {
-  position: relative;
-  bottom: 27px;
-  margin-top: 40px;
+.text__new__note,
+.note__text {
+  width: 100%;
+  height: 5.5rem;
+  font-size: 1.4rem;
+  border-radius: 2rem;
+}
+
+.notes:first-child {
+  margin-top: 3rem;
 }
 
 .note {
-  margin-bottom: -15px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .note__text {
   background-color: #ccc;
-  width: 231px;
-  height: 55px;
-  font-size: 14px;
-  border-radius: 20px;
   white-space: pre-line;
 }
 
-.btn__delete__note {
-  bottom: 28px;
-  height: 30px;
-}
-
 /* ////////////////////////////-To do-/////////////////////////// */
+.create__task {
+  /* opacity: 1;
+  height: 100%;
+  transition-property: height;
+  transition-duration: 1s;
+  transition-delay: 1s; */
+}
 
 .text__new__task {
-  width: 212px;
-  font-size: 14px;
-  margin-bottom: 20px;
+  width: 21.2rem;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
 }
 
-.task__text {
-  font-size: 14px;
-  text-indent: 30px;
+.task {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
-.task__content p {
+.task-text {
+  font-size: 1.4rem;
+}
+
+/* CHECKBOX  */
+.custom-checkbox {
   position: relative;
-  max-width: 300px;
-  text-align: left;
-  margin-left: 30px;
+}
+.custom-checkbox input {
+  height: 1.8rem;
+  width: 1.8rem;
+  opacity: 0;
 }
 
-/* Customize the label (the container) */
-.task__content {
+.custom-checkbox span {
   display: block;
-  position: relative;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* Hide the browser's default checkbox */
-.task__content input {
-  display: none;
-}
-
-/* Create a custom checkbox */
-.checkmark {
   position: absolute;
-  left: 20px;
-  height: 20px;
-  width: 20px;
+  top: 4px;
+  left: 4px;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 2px;
   background-color: #eee;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-/* On mouse-over, add a grey background color */
-.task__content:hover .checkmark {
-  background-color: #ccc;
+.custom-checkbox span:hover {
+  background: #ddd;
 }
 
-/* When the checkbox is checked, add a blue background */
-.task__content input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.custom-checkbox span::after {
   content: "";
   position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.task__content input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.task__content .checkmark:after {
-  left: 7px;
-  top: 3px;
-  width: 4px;
-  height: 8px;
-  border: solid white;
+  left: 6px;
+  bottom: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid #eee;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+  opacity: 0;
+}
+
+.custom-checkbox input:checked ~ span {
+  background-color: rgba(51, 207, 255, 0.482);
+}
+
+.custom-checkbox input:checked ~ span::after {
+  opacity: 1;
 }
 
 /* ////////////////////////////-Finances-/////////////////////////// */
+
+.flexbox-financial {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flexbox-financial p {
+  margin: 0 auto;
+}
+
+.flexbox-financial button {
+  margin: auto 0;
+}
 
 .currencies__pair,
 .stoks__rate,
@@ -306,7 +380,16 @@ label {
 /* ////////////////////////////-Technical-/////////////////////////// */
 .smooth__hide {
   opacity: 0;
-  transition: all 1000ms ease-out;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 1s;
+}
+
+.smooth-height {
+  height: 0;
+  transition-property: height;
+  transition-duration: 1s;
+  transition-delay: 1s;
 }
 
 .loader {
@@ -346,4 +429,19 @@ label {
 
 .hidden {
   display: none;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+/* 1200px */
+@media (max-width: 75rem) {
+  .main-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 656px */
+@media (max-width: 41rem) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
 }

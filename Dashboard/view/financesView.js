@@ -13,7 +13,7 @@ class financesView extends view {
   renderCurrencies = function (currenciesPair) {
     if (!currenciesPair || isNaN(currenciesPair.exchangeRate)) return;
     const html = `
-          <div class="currencies__pair__currencies" id="${currenciesPair.id}">
+          <div class="currencies__pair__currencies flexbox-financial" id="${currenciesPair.id}">
               <p class="fiat__exchange__rate">${currenciesPair.cur1}/${currenciesPair.cur2} = ${currenciesPair.exchangeRate}</p>
               <button class="btn__delete delete__from__finance__list">x</button>
             </div>`;
@@ -38,7 +38,7 @@ class financesView extends view {
   renderStocks(stock) {
     if (isNaN(stock.price)) return;
     const html = `
-            <div class="currencies__pair__stock" id="${stock.id}">
+            <div class="currencies__pair__stock flexbox-financial" id="${stock.id}">
                     <p class="selected__stock">${stock.symbol} = ${stock.price}</p>
                     <button class="btn__delete delete__from__finance__list">x</button>
                   </div>`;

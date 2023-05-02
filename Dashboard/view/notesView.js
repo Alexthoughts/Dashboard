@@ -11,7 +11,7 @@ class notesView {
           <div class="note" id="${note.id}">
           <textarea class="note__text" readonly>
         ${note.text}</textarea>
-          <button class="btn__delete btn__delete__note">x</button>
+        <button class="btn__delete btn__delete__note">x</button>
         </div>`;
     notes.insertAdjacentHTML("beforeend", html);
   }

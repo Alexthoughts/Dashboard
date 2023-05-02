@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="module" defer src="controller/controller.js"></script>
-    <title>Start page</title>
-    <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
-  </head>
-  <header>
-    <div class="clock"></div>
-    <div class="date"></div>
-  </header>
-  <body>
-    <div class="layout block">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" defer src="controller/controller.js"></script>
+  <title>Start page</title>
+  <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+</head>
+<header>
+  <div class="clock"></div>
+  <div class="date"></div>
+</header>
+
+<body>
+  <main class="main-content">
+    <section class="block">
       <h1 class="app__name">Horoskop</h1>
       <p class="app__description">
         This application helps you to get the current age, sunsign and horoskop
@@ -24,18 +27,12 @@
 
       <form class="input__form">
         <label for="inp_bith__date">Birhday:</label>
-        <input
-          type="date"
-          value="1997-06-12"
-          min="1950-01-01"
-          max="2030-12-31"
-          class="inp_bith__date"
-        />
-        <button class="save__birth__date">Save</button>
+        <input type="date" value="1997-06-12" min="1950-01-01" max="2030-12-31" class="inp_bith__date" />
+        <button class="btn save__birth__date">Save</button>
         <br />
-        <button class="btn__check__the__age">Check the age</button>
-        <button class="btn__get__the__sunsign">Get the sunsign</button>
-        <button class="btn__get__a__horoskop">Get a horoskop</button>
+        <button class="btn btn__check__the__age">Check the age</button>
+        <button class="btn btn__get__the__sunsign">Get the sunsign</button>
+        <button class="btn btn__get__a__horoskop">Get a horoskop</button>
       </form>
 
       <div class="recieved__data horoskop__info">
@@ -44,73 +41,76 @@
         <p class="horoskop__today hidden"></p>
         <p class="horoskop__tomorrow hidden">:</p>
       </div>
-    </div>
+    </section>
 
-    <div class="layout block block_weather">
-    </div>
+    <section class="block block_weather">
+    </section>
 
-    <div class="layout column">
-    <div class="block column__block">
-      <h1>Notes</h1>
-      <button class="btn__new__note">New note</button>
-      <form class="form__create__new__note hidden">
-        <textarea class="text__new__note" placeholder="Start typing"></textarea>
-        <button class="btn__save__note">Add</button>
-      </form>
-      <form class="notes"></form>
-    </div>
+    <section class="notepad-section">
+      <div class="block">
+        <h1>Notes</h1>
+        <button class="btn btn__new__note">New note</button>
+        <form class="form__create__new__note hidden">
+          <textarea class="text__new__note" placeholder="Start typing"></textarea>
+          <button class="btn__save__note">Add</button>
+        </form>
+        <form class="notes"></form>
+      </div>
 
-    <div class="block">
-      <h1>To do</h1>
-      <button class="btn__new__task">New task</button>
-      <form class="create__task hidden">
-        <input class="text__new__task" placeholder="Start typing" maxlength="32"></input>
-        <button class="btn__save__task">Add</button>
-      </form>
-      <form class="tasks">
-      </form>
-    </div>
-  </div>
+      <div class="block">
+        <h1>To do</h1>
+        <button class="btn btn__new__task">New task</button>
+        <form class="create__task hidden">
+          <input class="text__new__task" placeholder="Start typing" maxlength="32"></input>
+          <button class="btn btn__save__task">Add</button>
+        </form>
+        <form class="tasks">
+        </form>
+      </div>
+      </div>
+    </section>
 
-    <div class="layout block">
+    <section class="block">
       <h1>Finances</h1>
-      <div class = "fiat">
-      <div class="financial__label"><label for="currencies__list">Exchange rate</label></div>
-      <br>
-      <select class="currencies__list" id="currencies__list1">
-        <option value="" class="hidden">Currency</option>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-      </select>
-      <select class="currencies__list" id="currencies__list2">
-        <option value="" class="hidden">Currency</option>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-        <option value="CZK">CZK</option>
-        <option value="UAH">UAH</option>
-      </select>
-      <div class="currencies__exchange__rate__list">
-    </div>
-  </div>
-  <div class="stocks">
-    <div class="financial__label"><label class="financial__label" for="stocks__list">Stocks rate</label></div>
-    <br>
-        <input class="stocks__input" list="stocks__array" placeholder="Start typing..."/>
-<datalist class="stocks__array" id="stocks__array">
-</datalist>
+      <div class="fiat">
+        <div class="financial__label"><label for="currencies__list">Exchange rate</label></div>
+        <br>
+        <select class="currencies__list" id="currencies__list1">
+          <option value="" class="hidden">Currency</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+        </select>
+        <select class="currencies__list" id="currencies__list2">
+          <option value="" class="hidden">Currency</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="CZK">CZK</option>
+          <option value="UAH">UAH</option>
+        </select>
+        <div class="currencies__exchange__rate__list">
+        </div>
+      </div>
+      <div class="stocks">
+        <div class="financial__label"><label class="financial__label" for="stocks__list">Stocks rate</label></div>
+        <br>
+        <input class="stocks__input" list="stocks__array" placeholder="Start typing..." />
+        <datalist class="stocks__array" id="stocks__array">
+        </datalist>
         <div class="stocks__rate__list">
         </div>
-  </div>
-  <div class="crypto">
-    <div class="financial__label"><label for="crypto__list">Cryptocurrencies</label></div>
-    <br>
-    <button class="get__bitcoin__price">Bitcoin price</button>
-    <button class="get__ether__price">Ethereum  price</button>
+      </div>
+      <div class="crypto">
+        <div class="financial__label"><label for="crypto__list">Cryptocurrencies</label></div>
+        <br>
+        <button class="btn get__bitcoin__price">Bitcoin price</button>
+        <button class="btn get__ether__price">Ethereum price</button>
         <div class="crypto__rate__list">
         </div>
-  </div>
-    </div>
+      </div>
+    </section>
+  </main>
     <div class="errors">
-</div> 
-  </body>
+    </div>
+</body>
+
 </html>
