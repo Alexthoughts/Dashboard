@@ -52,6 +52,7 @@ html *:focus:not(.btn__delete) {
 
 body {
   background-color: #151515;
+  height: 100vh;
 }
 
 html,
@@ -61,7 +62,7 @@ body {
 }
 
 header {
-  background-image: linear-gradient(to top, #151515, #2c2c2c);
+  background-image: linear-gradient(to top, #151515, #333);
   padding-top: 0.5%;
 }
 
