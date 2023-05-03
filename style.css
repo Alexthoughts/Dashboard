@@ -62,7 +62,7 @@ body {
 
 header {
   background-image: linear-gradient(to top, #151515, #2c2c2c);
-  padding: 0.5%;
+  padding-top: 0.5%;
 }
 
 button,
