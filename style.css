@@ -282,14 +282,15 @@ label {
 
 /* ////////////////////////////-To do-/////////////////////////// */
 .create__task {
-  height: 4rem;
+  height: 5rem;
   transition: all 0.3s;
 }
 
 .text__new__task {
   width: 21.2rem;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   height: 3rem;
   opacity: 1;
   transition: all 0.3s;
@@ -378,7 +379,7 @@ label {
 .currencies__list,
 .stocks__input,
 .get__bitcoin__price {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .currencies__pair,
