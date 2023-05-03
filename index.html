@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="style.css" />
   <script type="module" defer src="controller/controller.js"></script>
   <title>Start page</title>
-  <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet"></head>
 <header>
   <div class="clock"></div>
   <div class="date"></div>
@@ -50,9 +51,9 @@
       <div class="block">
         <h1>Notes</h1>
         <button class="btn btn__new__note">New note</button>
-        <form class="form__create__new__note hidden">
-          <textarea class="text__new__note" placeholder="Start typing"></textarea>
-          <button class="btn__save__note">Add</button>
+        <form class="form__create__new__note smooth-height">
+          <textarea class="text__new__note smooth-height" placeholder="Start typing"></textarea>
+          <button class="btn btn__save__note smooth-height">Add</button>
         </form>
         <form class="notes"></form>
       </div>
@@ -60,9 +61,9 @@
       <div class="block">
         <h1>To do</h1>
         <button class="btn btn__new__task">New task</button>
-        <form class="create__task hidden">
-          <input class="text__new__task" placeholder="Start typing" maxlength="32"></input>
-          <button class="btn btn__save__task">Add</button>
+        <form class="create__task smooth-height"> 
+          <input class="text__new__task smooth-height" placeholder="Start typing" maxlength="32"></input>
+          <button class="btn btn__save__task smooth-height">Add</button>
         </form>
         <form class="tasks">
         </form>

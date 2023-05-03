@@ -152,6 +152,7 @@ export const getCryptocurrencyPrice = async function (e) {
 
 export const deleteFromFinance = function (e) {
   const element = e.target;
+  if (!element.classList.contains("delete__from__finance__list")) return;
   if (element.closest(".currencies__pair__stock")) {
     const financialEl = element.closest(".currencies__pair__stock");
     const stockIndex = stockList.selectedStocks.findIndex(

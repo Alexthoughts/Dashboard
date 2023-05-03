@@ -1,8 +1,12 @@
 class tasksView {
   toggleFormNewTask() {
     const formNewTask = document.querySelector(".create__task");
-    formNewTask.classList.toggle("hidden");
-    // formNewTask.classList.toggle("smooth-height");
+    const textNewTask = document.querySelector(".text__new__task");
+    const btnNewTask = document.querySelector(".btn__save__task");
+    // formNewTask.classList.toggle("hidden");
+    formNewTask.classList.toggle("smooth-height");
+    textNewTask.classList.toggle("smooth-height");
+    btnNewTask.classList.toggle("smooth-height");
   }
   renderTask(task) {
     const formTasks = document.querySelector(".tasks");
@@ -19,7 +23,7 @@ class tasksView {
   deleteTask(element) {
     if (!element) return;
     element.closest(".task").classList.add("smooth__hide");
-    setTimeout(() => element.closest(".task").classList.add("hidden"), 1000);
+    setTimeout(() => element.closest(".task").classList.add("hidden"), 800);
   }
 }
 

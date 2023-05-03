@@ -4,7 +4,7 @@ import notesView from "../view/notesView.js";
 export const controlNotes = function () {
   notesModel.btnNewNote.addEventListener("click", addNewNoteForm);
   notesModel.btnSaveNote.addEventListener("click", createNewNote);
-  document.addEventListener("click", notesModel.deleteNote);
+  document.addEventListener("click", deleteNote);
   window.addEventListener("load", getLocalStorage);
 };
 
@@ -17,6 +17,11 @@ const createNewNote = function (e) {
   notesModel.saveNote(e);
   notesView.renderNote(notesModel.notesArray[notesModel.notesArray.length - 1]);
   notesView.toggleNewNoteForm();
+};
+
+const deleteNote = function (e) {
+  notesModel.deleteNote(e);
+  notesView.deleteNote(notesModel.deleteElement);
 };
 
 const getLocalStorage = function () {

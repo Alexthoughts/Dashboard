@@ -5,6 +5,7 @@ const textNewNote = document.querySelector(".text__new__note");
 export const btnSaveNote = document.querySelector(".btn__save__note");
 
 export let notesArray = [];
+export let deleteElement;
 
 class Note {
   constructor(id, text) {
@@ -33,11 +34,13 @@ export const saveNote = function (e) {
 export const deleteNote = function (e) {
   const element = e.target;
   if (!element.classList.contains("btn__delete__note")) return;
+  e.preventDefault();
   const noteEl = element.closest(".note");
   const noteIndex = notesArray.findIndex((note) => note.id === noteEl.id);
   notesArray.splice(noteIndex, 1);
-  noteEl.remove();
+  // noteEl.remove();
   model.saveToLocalStorage(notesArray, "notesArray");
+  deleteElement = element;
 };
 
 export const getLocalStorage = function () {
